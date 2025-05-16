@@ -1,98 +1,98 @@
-Proyecto de Automatización con Serenity BDD, Cucumber y POM
+🧪 Proyecto de Automatización: Serenity BDD + Cucumber + POM
+Este proyecto implementa la automatización del proceso de inicio de sesión en el sitio de pruebas Guru99 Demo, utilizando Serenity BDD, Cucumber, Selenium WebDriver y el patrón de diseño Page Object Model (POM). La arquitectura aplicada promueve la escalabilidad, reutilización de código y separación de responsabilidades.
 
-Este proyecto automatiza el inicio de sesión en el sitio de pruebas Guru99 Demo, utilizando Serenity BDD, Cucumber, Selenium y el patrón de diseño Page Object Model (POM).
+📚 Tabla de Contenido
+📁 Estructura del Proyecto
 
-Tabla de contenido
+🔧 Dependencias y Configuraciones
 
-Estructura del Proyecto
+🧩 Diseño del Flujo de Automatización
 
-Dependencias y Configuraciones
+🧠 Explicación de Componentes
 
-Diseño del Flujo de Automatización
+📐 Patrón de Diseño POM
 
-Explicación del Código
+✅ Conclusión
 
-Feature
-
-Runner
-
-Step Definitions
-
-Steps
-
-PageObjects
-
-Models
-
-Patrón de Diseño POM
-
-Estructura del Proyecto
-
+📁 Estructura del Proyecto
+bash
+Copiar
+Editar
 project-root
-|-- src
-|   |-- main
-|   |-- test
-|       |-- java
-|       |   |-- models
-|       |   |-- pageObjects
-|       |   |-- steps
-|       |   |-- runners
-|       |   |-- stepDefinitions
-|       |   
-|       |-- resources
-|           |-- features
-|           |-- drivers
-|-- Gradle
-|-- serenity.conf / serenity.properties
-|-- README.md
-
-Dependencias y Configuraciones
-
+│
+├── src
+│   └── test
+│       ├── java
+│       │   ├── models
+│       │   ├── pageObjects
+│       │   ├── steps
+│       │   ├── runners
+│       │   └── stepDefinitions
+│       └── resources
+│           ├── features
+│           └── drivers
+│
+├── serenity.properties / serenity.conf
+├── build.gradle
+└── README.md
+🔧 Dependencias y Configuraciones
 Archivo serenity.properties:
 
+properties
+Copiar
+Editar
 webdriver.driver=chrome
 webdriver.chrome.driver=src/test/resources/drivers/chromedriver.exe
-serenity.project.name = Demo project using Serenity and Cucumber on the Guru99 Demo
+serenity.project.name=Demo project using Serenity and Cucumber on the Guru99 Demo
 chrome.switches=--start-maximized
 webdriver.driver.silent=true
-serenity.verbose.steps=FALSE
-serenity.report.encoding=UTF8
-feature.file.encoding=UTF8
+serenity.verbose.steps=false
+serenity.report.encoding=UTF-8
+feature.file.encoding=UTF-8
 serenity.test.root=net.thucydides.showcase.cucumber.junit
 
-Diseño del Flujo de Automatización
+✅ Asegúrate de tener el chromedriver.exe correcto para tu versión de Chrome.
 
-Se define el escenario en un archivo .feature con Gherkin.
+🧩 Diseño del Flujo de Automatización
+El escenario se describe en un archivo .feature utilizando Gherkin.
 
-Se implementan los step definitions, que son la traducción del lenguaje natural a métodos Java.
+Las Step Definitions traducen los pasos escritos en lenguaje natural a código Java.
 
-Los step definitions usan clases "Steps" que contienen anotaciones @Step de Serenity.
+Las clases de Steps contienen métodos con la anotación @Step provista por Serenity.
 
-Las clases "Steps" llaman a métodos de los PageObjects, donde se encuentra el código real de interacción con los elementos de la página.
+Los Steps interactúan con los Page Objects, donde se define la lógica de interacción con los elementos del DOM.
 
-Un runner ejecuta el escenario, usando Cucumber y Serenity.
+Un Runner ejecuta los escenarios usando Cucumber y genera reportes automáticos con Serenity.
 
-Se generan reportes automáticos con Serenity.
+🧠 Explicación de Componentes
+Features: Escenarios en lenguaje natural.
 
-Patrón de Diseño POM
+Runner: Configura la ejecución con Cucumber y Serenity.
 
-El Page Object Model (POM) es un patrón que separa la lógica de automatización de la lógica de interfaz gráfica. Sus ventajas incluyen:
+Step Definitions: Traducción de pasos Gherkin a métodos Java.
 
-Reutilización de código.
+Steps: Lógica modular con anotaciones @Step.
 
-Mantenimiento más sencillo.
+Page Objects: Representación de páginas con sus elementos y acciones.
 
-Mayor claridad en la separación de responsabilidades.
+Models: Estructuras de datos o representaciones de entidades.
+
+📐 Patrón de Diseño POM
+El Page Object Model (POM) es un patrón de diseño que favorece la separación entre la lógica de pruebas y la interfaz de usuario.
+
+Ventajas:
+🔄 Reutilización de componentes.
+
+🛠️ Mantenimiento más simple.
+
+📖 Mejor claridad y organización.
 
 En este proyecto:
+LoginPage.java: Contiene los elementos y acciones de la pantalla de login.
 
-LoginPage es el Page Object.
+LoginSteps.java: Orquesta el flujo de acciones.
 
-LoginSteps es la clase que orquesta las acciones del flujo.
+LoginStepDefinition.java: Conecta los pasos Gherkin con el flujo de pruebas.
 
-LoginStepDefinition vincula los pasos en lenguaje natural con el código.
-
-Conclusión
-
-Este proyecto demuestra un enfoque estructurado de automatización con buenas prácticas, como el uso de Serenity BDD, Cucumber y el patrón POM. Esta arquitectura permite escalar los tests, mejorar la legibilidad y mantener una separación clara entre las capas de lógica, interfaz y definición de escenarios.
-
+✅ Conclusión
+Este proyecto ejemplifica buenas prácticas en la automatización de pruebas mediante Serenity BDD, Cucumber y el patrón Page Object Model. La arquitectura aplicada facilita el mantenimiento, la escalabilidad de pruebas y la claridad en la estructura del código.
